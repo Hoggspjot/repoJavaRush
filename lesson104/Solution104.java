@@ -1,14 +1,17 @@
+package com.javarush.task.pro.task09.task0906;
 
 
-/* 
+import java.util.regex.Pattern;
+
+/*
 Двоичный конвертер
 */
 
-public class Solution104 {
+public class Solution {
     public static void main(String[] args) {
-        int decimalNumber = Integer.MAX_VALUE;
+        int decimalNumber = 54321;
         System.out.println("Десятичное число " + decimalNumber + " равно двоичному числу " + toBinary(decimalNumber));
-        String binaryNumber = "1111111111111111111111111111111";
+        String binaryNumber = "1101010000110001";
         System.out.println("Двоичное число " + binaryNumber + " равно десятичному числу " + toDecimal(binaryNumber));
     }
 
@@ -29,13 +32,13 @@ public class Solution104 {
     }
 
     public static int toDecimal(String binaryNumber) {
-        if (binaryNumber.equals(null) || binaryNumber.equals("")){
+        if (binaryNumber == null || (binaryNumber.trim().isEmpty())){
             return 0;
         }
         int y = binaryNumber.length();
         int x = 0;
         for (int i = 0; i < y; i++) {
-            String strNum = binaryNumber.substring(i, i+1);
+            String strNum = binaryNumber.substring(binaryNumber.length() - (i+1), binaryNumber.length() - i );
             int a = Integer.parseInt (strNum);
             x = (int) (x + a * Math.pow(2, i));
         }
