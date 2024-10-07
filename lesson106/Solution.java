@@ -7,7 +7,7 @@ package com.javarush.task.pro.task09.task0908;
 
 import java.util.regex.Pattern;
 
-public class Solution106 {
+public class Solution {
     private static final String HEX = "0123456789abcdef";
 
     public static void main(String[] args) {
@@ -50,14 +50,16 @@ public class Solution106 {
     }
 
     public static String toBinary(String hexNumber) {
-        Pattern pattern = Pattern.compile("[0-9a-f]+");
+        Pattern pattern = Pattern.compile("[0-9a-fA-D]+");
         if (hexNumber == null || (hexNumber.trim().isEmpty()) || !pattern.matcher(hexNumber).matches()) {          //Проверка входящего значения на null b пустую строку и символы
             return "";
         }
         int x = 0;
-        char str1 = '0';
+        char str = '0';
         for (int i = 0; i < hexNumber.length(); i++) {
-            str1 = hexNumber.charAt(i);
+            hexNumber = hexNumber.toLowerCase();
+            str = hexNumber.charAt(i);
+            String str1 = str + "";
             int index = HEX.indexOf(str1);
             x = 16 * x + index;
         }
@@ -70,6 +72,7 @@ public class Solution106 {
             x = x / 2;
         }
         return decimal;
+
     }
 }
 
