@@ -11,7 +11,13 @@ public class main {
         System.out.println(Optional.of(1));
         StringBuilder sb = new StringBuilder("Start ");
 
-        TreeMap<String, String> tree = new TreeMap<>();
+        TreeMap<Integer,Integer> tree = new TreeMap<>();
+
+        tree.put(1, 100);
+        tree.put(5, 500);
+
+        System.out.println(tree.ceilingEntry(2));
+        System.out.println(tree.floorEntry(2));
 
     }
 }
