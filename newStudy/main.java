@@ -19,6 +19,13 @@ public class main {
         System.out.println(tree.ceilingEntry(2));
         System.out.println(tree.floorEntry(2));
 
+        System.out.println("==============================================");
+
+        Stream.of(8, 6, 5, 3, 7, 5, 6, 4, 9)
+                .peek(integer -> System.out.print(integer+" peek "))
+                .sorted()
+                .distinct()
+                .forEach(System.out::print);
     }
 }
 
